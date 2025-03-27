@@ -17,23 +17,27 @@ window.onload = function() {
       const newDomains = []
 
       for (let i = 0; i < pronoun.length; i++) {
-        newDomains.push(pronoun[i])
+        // newDomains.push(pronoun[i])
         for (let j = 0; j < adj.length; j++) {
-          newDomains.push(adj[j])
+          // newDomains.push(adj[j])
           for (let k = 0; k < noun.length; k++) {
-            newDomains.push(noun[k])
+            // newDomains.push(noun[k])
             for (let l = 0; l < ext.length; l++) {
-              newDomains.push(ext[l])
+              newDomains.push(pronoun[i] + adj[j] + noun[k] + ext[l])
+              // console.log(pronoun[i] + adj[j] + noun[k] + ext[l]);
               
             }
           }
         }
-        return newDomains
+        
       }
       
-      
+      return newDomains
     }
-  const result = myDomain()
-
-  console.log(result);
+    let lista = document.getElementById("lista-dominios")
+    const result = myDomain()
+    result.forEach(domain => {
+      lista.innerHTML += "<li>" + domain + "</li>"
+    })
+    console.log(result);
 };
